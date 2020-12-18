@@ -9,10 +9,12 @@ RUN pip install --no-cache-dir \
         plotly_express==0.4.1 \
         matplotlib==3.3.3 \
         scipy==1.5.4 && \
-        beakerx-all==2.0.1 && \
+        ipywidgets==7.5.1 && \
     fix-permissions /home/$NB_USER
 
 # Basic JupyterLab renderer support
 RUN jupyter labextension install jupyterlab-plotly@4.14.1
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
 
 ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/python"
